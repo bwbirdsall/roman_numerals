@@ -16,12 +16,8 @@ def roman_numerals(number)
                   1 => "I"}
   while (number > 0)
     biggest_pair = roman_pairs.select{|k,v| number >= k}.max_by{|k,v| k}
-    numeral_letters = add_letter(numeral_letters, biggest_pair[1])
+    numeral_letters += biggest_pair[1]
     number = number - biggest_pair[0]
   end
   numeral_letters
-end
-
-def add_letter(numeral_letters, new_letter)
-  numeral_letters += new_letter
 end
